@@ -3,8 +3,7 @@
 
 Создаем папку для нового проекта и переходим в нее
 
-    md ToDoFlask & cd ToDoFlask
-
+    md ToDoFastAPI & cd ToDoFastAPI
 Структура файлов и папок
 
     md templates
