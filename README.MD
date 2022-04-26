@@ -4,6 +4,8 @@
 Создаем папку для нового проекта и переходим в нее
 
     md ToDoFastAPI & cd ToDoFastAPI
+
+
 Структура файлов и папок
 
     md templates
