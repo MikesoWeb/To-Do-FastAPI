@@ -1,9 +1,9 @@
 from sqlalchemy import Boolean, Column, Integer, String
 
-from database import Base
+from todo.database import db
 
 
-class ToDo(Base):
+class ToDo(db):
     __tablename__ = 'todos'
 
     id = Column(Integer, primary_key=True, index=True)
