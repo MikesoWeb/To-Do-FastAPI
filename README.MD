@@ -1,6 +1,22 @@
 Простой ToDo менеджер, реализованный на веб-фреймворке FastAPI В качестве веб-интерфейса использован фреймворк Semantic
 UI https://semantic-ui.com/
 
+![Image alt](https://sun9-79.userapi.com/s/v1/ig2/_VbrX_7lobl7Eq5zjsX_zj18i7Bpu6YgKW-wuMfRpO1E3n-Bdv7MjFPHlFRyKy00kOaeIQEouvLf7Kw1k5QnRgn5.jpg?size=1280x740&quality=96&type=album)
+
+**UPD 1.0**  от  _5.13.22_
+
+
+    Добавлен файл config.py и туда перенесена конфигурация приложения
+    Добавлен модуль python-dotenv и файл .env для хранения значений переменных окружения приложения
+    
+
+
+**Внимание!** 
+Файл .env должен быть указан в файле .gitignore чтобы ваши настройки не улетели в репозиторий
+Для данного примера я его исключил из файла игнора
+
+
+
 Создаем папку для нового проекта и переходим в нее
 
     md ToDoFastAPI & cd ToDoFastAPI
@@ -58,6 +74,7 @@ UI https://semantic-ui.com/
     uvicorn run:app --reload --port 5000
 
 
-Ссылка на оригинал: https://youtu.be/3vfum74ggHE
+- [Ссылка на оригинал](https://youtu.be/3vfum74ggHE)
+
 
     Терехов Михаил 2022 год

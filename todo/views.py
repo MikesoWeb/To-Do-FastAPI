@@ -4,6 +4,7 @@ from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
+from todo.config import get_settings, Settings
 from todo.database import engine, get_db, db
 from todo.models import ToDo
 
@@ -14,10 +15,12 @@ db.metadata.create_all(bind=engine)
 
 
 @app.get('/')
-def home(request: Request, db_session: Session = Depends(get_db)):
+def home(request: Request, settings: Settings = Depends(get_settings), db_session: Session = Depends(get_db)):
     todos = db_session.query(ToDo).all()
     return templates.TemplateResponse('todo/index.html',
-                                      {'request': request, 'todo_list': todos, 'title': 'Главная страница'})
+                                      {'request': request, 'todo_list': todos,
+                                       'app_name': settings['app_name'],
+                                       'title': 'ToDo менеджер'})
 
 
 @app.post('/add')
