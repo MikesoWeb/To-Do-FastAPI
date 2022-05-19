@@ -38,6 +38,8 @@ UI https://semantic-ui.com/
     echo .> templates/todo/layout.html
     echo .> templates/todo/index.html 
 
+Файл crud.py добавил для примера. В данном приложении он не участвует
+
 
 Устанавливаем и активируем виртуальное окружение
 
@@ -72,6 +74,10 @@ UI https://semantic-ui.com/
 Запускаем приложение
 
     uvicorn run:app --reload --port 5000
+
+или
+
+    uvicorn todo.routes:app --reload
 
 
 - [Ссылка на оригинал](https://youtu.be/3vfum74ggHE)

@@ -1,11 +1,14 @@
 from sqlalchemy import Boolean, Column, Integer, String
 
-from todo.database import db
+from todo.database import Base, engine
 
 
-class ToDo(db):
+class ToDo(Base):
     __tablename__ = 'todos'
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
     is_complete = Column(Boolean, default=False)
+
+
+Base.metadata.create_all(bind=engine)

@@ -1,3 +1,2 @@
-from todo.views import app
-
+from todo.routes import app
 
