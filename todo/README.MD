@@ -5,82 +5,74 @@ UI https://semantic-ui.com/
 
 **UPD 1.0**  от  _5.13.22_
 
-
     Добавлен файл config.py и туда перенесена конфигурация приложения
     Добавлен модуль python-dotenv и файл .env для хранения значений переменных окружения приложения
-    
 
-
-**Внимание!** 
-Файл .env должен быть указан в файле .gitignore чтобы ваши настройки не улетели в репозиторий
-Для данного примера я его исключил из файла игнора
-
-
+**Внимание!**
+Файл .env должен быть указан в файле .gitignore чтобы ваши настройки не улетели в репозиторий Для данного примера я его
+исключил из файла игнора
 
 Создаем папку для нового проекта и переходим в нее
 
     md ToDoFastAPI & cd ToDoFastAPI
-
-
-Структура файлов и папок
-
-    mkdir templates\todo
-    mkdir static\css
-    echo .> static/css/style.css
-    echo .> .gitignore
-    echo .> README.MD
-    echo .> run.py
-    md todo
-    echo .> todo/__init__.py
-    echo .> todo/database.py
-    echo .> todo/models.py
-    echo .> todo/views.py
-    echo .> templates/todo/layout.html
-    echo .> templates/todo/index.html 
-
-Файл crud.py добавил для примера. В данном приложении он не участвует
-
 
 Устанавливаем и активируем виртуальное окружение
 
     python3 -m venv venv
     . venv/bin/activate
 
+Структура файлов и папок
+
+    md todo & cd todo
+    mkdir templates\todo
+    mkdir static\css
+    echo .> static/css/style.css
+    echo .> .gitignore
+    echo .> README.MD
+        
+    echo .> __init__.py
+    md database
+    echo .> database/__init__.py
+    echo .> database/base.py
+    echo .> models.py
+    echo .> config.py
+    echo .> main.py
+    echo .> routes.py
+    echo .> templates/todo/layout.html
+    echo .> templates/todo/index.html 
+    cd ..
+    echo .> run.py
+
+Чтобы автоматически создать структуру проекта запустите в консоли файл
+
+    fastapi_structure_project.bat
 
 Инициализируем git
 
     git init
 
-
 Устанавливаем модули
 
     pip install fastapi uvicorn sqlalchemy jinja2
-    pip install python-multipart
-
+    pip install python-multipart python-dotenv
 
 Или установить полный fastapi, включающий jinja2, python-multipart, uvicorn
-    
-    pip install fastapi[all] sqlalchemy
 
+    pip install fastapi[all] sqlalchemy
 
 Создаем файл с зависимостями проекта
 
     pip freeze > requirements.txt
 
-
 База данных должна быть в файле .gitignore, но для этого примера я ее оттуда удалил, чтобы был пример ToDo задач
-
 
 Запускаем приложение
 
+run - файл run.py, содержащий объект приложения app
+
     uvicorn run:app --reload --port 5000
 
-или
-
-    uvicorn todo.routes:app --reload
-
-
 - [Ссылка на оригинал](https://youtu.be/3vfum74ggHE)
+- [Ссылка на видео с моего канала по данному примеру](https://youtu.be/nTbhOyLUTAI)
 
-
-    Терехов Михаил 2022 год
+  Терехов Михаил 2022 год

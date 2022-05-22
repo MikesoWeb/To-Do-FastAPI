@@ -1,6 +1,6 @@
-from sqlalchemy import Boolean, Column, Integer, String
+from sqlalchemy import Column, String, Integer, Boolean
 
-from todo.database import Base, engine
+from todo.database.base import Base, engine
 
 
 class ToDo(Base):

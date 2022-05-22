@@ -3,7 +3,8 @@
 {% block content %}
 
 <div style="margin-top: 50px;" class="ui container">
-    <h1 class="ui center aligned header">Мой менеджер задач</h1>
+
+    <h1 class="ui center aligned header green">{{ app_name }}</h1>
 
     <form class="ui form" action="{{ url_for('add') }}" method="post">
         <h3 class="test_css">Оптимизируй своё время</h3>
@@ -14,20 +15,20 @@
         <button class="ui teal basic button" type="submit">Добавить</button>
     </form>
 
+
     {% for todo in todo_list %}
     <div class="ui segment">
         <p class="ui big header">№{{ todo.id }} {{ todo.title }}</p>
 
         {% if todo.is_complete == False %}
-            <span class="ui gray label">Не завершено</span>
-            <a class="ui primary basic button" href="{{ url_for('update', todo_id=todo.id) }}">Закрыть</a>
+        <span class="ui gray label">Не завершено</span>
+        <a class="ui primary basic button" href="{{ url_for('update', todo_id=todo.id) }}">Закрыть</a>
         {% else %}
-            <span class="ui green label">Завершено</span>
-            <a class="ui blue button" href="{{ url_for('update', todo_id=todo.id) }}">Открыть</a>
-        {% endif %}
+        <span class="ui green label">Завершено</span>
+        <a class="ui blue button" href="{{ url_for('update', todo_id=todo.id) }}">Открыть</a>
         <a class="ui negative basic button" href="{{ url_for('delete', todo_id=todo.id) }}">Удалить</a>
+        {% endif %}
     </div>
     {% endfor %}
 </div>
-
 {% endblock content %}
