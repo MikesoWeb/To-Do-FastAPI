@@ -23,11 +23,11 @@ def get_db():
 
 #  Получаем от параметра check_db коннект к нужной базе данных
 def choose_db(arg_db):
-    if arg_db == settings.db_sqlite_url:
-        engine = create_engine(settings.db_sqlite_url, connect_args={'check_same_thread': False}, echo=True)
-    else:
-
-        engine = create_engine(settings.db_postgre_url, echo=True)
+    # if arg_db == settings.db_sqlite_url:
+    engine = create_engine(settings.db_sqlite_url, connect_args={'check_same_thread': False}, echo=True)
+    # else:
+    #
+    #     engine = create_engine(settings.db_postgre_url, echo=True)
     return engine
 
 
