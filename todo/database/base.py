@@ -12,8 +12,6 @@ if not os.path.exists(db_path):
 
 Base = declarative_base()
 
-engine = create_engine(settings.db_url, connect_args={'check_same_thread': False}, echo=True)
-
 
 def get_db():
     db_session_local = SessionLocal()
@@ -23,4 +21,17 @@ def get_db():
         db_session_local.close()
 
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+#  Получаем от параметра check_db коннект к нужной базе данных
+def choose_db(arg_db):
+    if arg_db == settings.db_sqlite_url:
+        engine = create_engine(settings.db_sqlite_url, connect_args={'check_same_thread': False}, echo=True)
+    else:
+
+        engine = create_engine(settings.db_postgre_url, echo=True)
+    return engine
+
+
+# Указать DB name
+check_db = choose_db(settings.db_sqlite_url)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=check_db)
