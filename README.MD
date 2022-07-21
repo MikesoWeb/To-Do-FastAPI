@@ -36,12 +36,12 @@ UI https://semantic-ui.com/
     echo .> database/base.py
     echo .> models.py
     echo .> config.py
-    echo .> main.py
+    echo .> app.py
     echo .> routes.py
     echo .> templates/todo/layout.html
     echo .> templates/todo/index.html 
     cd ..
-    echo .> run.py
+    echo .> main.py
 
 Чтобы автоматически создать структуру проекта запустите в консоли файл
 
@@ -70,7 +70,7 @@ UI https://semantic-ui.com/
 
 run - файл run.py, содержащий объект приложения app
 
-    uvicorn run:app --reload --port 5000
+    uvicorn main:app --reload --port 5000
 
 - [Ссылка на оригинал](https://youtu.be/3vfum74ggHE)
 - [Ссылка на видео с моего канала по данному примеру](https://youtu.be/nTbhOyLUTAI)
