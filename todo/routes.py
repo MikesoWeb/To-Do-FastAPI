@@ -5,7 +5,7 @@ from starlette.status import HTTP_303_SEE_OTHER, HTTP_302_FOUND
 
 from todo.config import settings
 from todo.database.base import get_db
-from todo.main import app, templates
+from todo.app import app, templates
 from todo.models import ToDo
 
 
